@@ -38,6 +38,5 @@ botonconectar.grid(column=0, row=4, padx=5, pady=5)
 botonsalir = Button(miframe, text="Salir", command=salir)
 botonsalir.grid(column=1, row=4, padx=5, pady=5)
 
-hub = 0
 
 raiz.mainloop()
