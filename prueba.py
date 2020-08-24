@@ -1,5 +1,3 @@
 from funciones import *
 
 inicio()
-
-

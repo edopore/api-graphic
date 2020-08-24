@@ -6,7 +6,7 @@ from api import *
 def inicio():
     raiz = Tk()
     raiz.title("API MikroTik")
-    raiz.iconbitmap("mikrotik.ico")
+    raiz.iconbitmap("media/MikroTik.ico")
     raiz.resizable(False, False)
 
     frameimagen = Frame(raiz)
@@ -16,7 +16,7 @@ def inicio():
     username = StringVar()
     password = StringVar()
 
-    imagen = PhotoImage(file="logoisanet.gif")
+    imagen = PhotoImage(file="media/logoIsanet.gif")
     Label(frameimagen, image=imagen).pack()
 
     miframe = Frame(raiz, width=650, height=350)
