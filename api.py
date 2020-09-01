@@ -60,7 +60,16 @@ def activarfile(file, app):
     return
 
 
-def activar(app):
+def activar(app, address):
+    list_address = app.get_resource('/ip/arp')  # Obtiene Datos de la tabla ARP
+    #address = input("Dirección IP Usuario: ")
+    _id = list_address.get(address=address)[0]['id']
+    print("IP Address:"+address+", id:"+_id)
+    # list_address.set(id=_id, address=address, disabled='true')
+
+def desactivar(app, address):
+    print(address.get())
+'''def desactivar(app):
     list_address = app.get_resource('/ip/arp')  # Obtiene Datos de la tabla ARP
     while True:
         address = input("Dirección IP Usuario: ")
@@ -69,21 +78,8 @@ def activar(app):
             print(list_address.get(address=address))
             # list_address.set(id=_id, address=address, disabled='true')
         else:
-            break
-    return
+            break'''
 
-
-def desactivar(app):
-    list_address = app.get_resource('/ip/arp')  # Obtiene Datos de la tabla ARP
-    while True:
-        address = input("Dirección IP Usuario: ")
-        if address:
-            _id = list_address.get(address=address)[0]['id']
-            print(list_address.get(address=address))
-            # list_address.set(id=_id, address=address, disabled='true')
-        else:
-            break
-    return
 
 
 def ip2str(x_val):
