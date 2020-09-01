@@ -1,5 +1,4 @@
 import routeros_api
-import getpass
 import pandas as pd
 
 
@@ -37,54 +36,38 @@ def obtenerarp(api, interface=''):
 
 
 def desactivarfile(file, app):
+    print(file)
     file = pd.read_excel(file)
-    ip = ip2str(file['DIRECCION IP'])
+    ip = file['DIRECCION IP']
     print(len(ip))
-    list_address = app.get_resource('/ip/arp')  # Obtiene Datos de la tabla ARP
     for dire in ip:
-        _id = list_address.get(address=dire)[0]['id']
-        print('ip address: ', list_address.get(address=dire)[0]['address'], 'id: ', _id)
-        list_address.set(id=_id, address=dire, disabled='true')
+        print(dire)
+        desactivar(app, dire)
     return
 
 
 def activarfile(file, app):
+    print(file)
     file = pd.read_excel(file)
-    ip = ip2str(file['DIRECCION IP'])
+    ip = file['DIRECCION IP']
     print(len(ip))
-    list_address = app.get_resource('/ip/arp')  # Obtiene Datos de la tabla ARP
     for dire in ip:
-        _id = list_address.get(address=dire)[0]['id']
-        print('ip address:', dire, ' id:', _id)
-        list_address.set(id=_id, address=dire, disabled='false')
+        print(dire)
+        activar(app, dire)
     return
 
 
 def activar(app, address):
     list_address = app.get_resource('/ip/arp')  # Obtiene Datos de la tabla ARP
-    #address = input("Dirección IP Usuario: ")
     _id = list_address.get(address=address)[0]['id']
-    print("IP Address:"+address+", id:"+_id)
-    # list_address.set(id=_id, address=address, disabled='true')
+    list_address.set(id=_id, address=address, disabled='false')
+    enable = list_address.get(address=address)[0]['disabled']
+    return _id, enable
+
 
 def desactivar(app, address):
-    print(address.get())
-'''def desactivar(app):
     list_address = app.get_resource('/ip/arp')  # Obtiene Datos de la tabla ARP
-    while True:
-        address = input("Dirección IP Usuario: ")
-        if address:
-            _id = list_address.get(address=address)[0]['id']
-            print(list_address.get(address=address))
-            # list_address.set(id=_id, address=address, disabled='true')
-        else:
-            break'''
-
-
-
-def ip2str(x_val):
-    ipstr = []
-    for i in x_val:
-        aux = str(i)
-        ipstr.append(aux)
-    return ipstr
+    _id = list_address.get(address=address)[0]['id']
+    list_address.set(id=_id, address=address, disabled='true')
+    enable = list_address.get(address=address)[0]['disabled']
+    return _id, enable

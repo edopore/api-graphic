@@ -22,18 +22,18 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/casa" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9bdcf36e-0d88-485e-a045-8af0e6a87b8a" name="Default Changelist" comment="Se agrega variable HUB">
+    <list default="true" id="9bdcf36e-0d88-485e-a045-8af0e6a87b8a" name="Default Changelist" comment="Fusion casa-oficina">
+      <change afterPath="$PROJECT_DIR$/media/LogoIsanet.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funciones.py" beforeDir="false" afterPath="$PROJECT_DIR$/funciones.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/MikroTik.ico" beforeDir="false" afterPath="$PROJECT_DIR$/media/MikroTik.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prueba.py" beforeDir="false" afterPath="$PROJECT_DIR$/prueba.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,13 +101,13 @@
       <method v="2" />
     </configuration>
     <configuration name="prueba" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="apigraphic" />
+      <module name="api-graphic" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\DosMilDePan\AppData\Local\Programs\Python\Python38-32\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\SOLUCIONES-FARA\AppData\Local\Programs\Python\Python38-32\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -216,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598285475422</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fusion casa-oficina">
+      <created>1598964556044</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1598964556044</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -230,7 +237,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="origin/casa" />
                       </list>
                     </value>
                   </entry>
@@ -248,7 +255,8 @@
     <MESSAGE value="Primera versión de la api gráfica python-mikrotik" />
     <MESSAGE value="Tercer intento" />
     <MESSAGE value="Se agrega variable HUB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se agrega variable HUB" />
+    <MESSAGE value="Fusion casa-oficina" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fusion casa-oficina" />
   </component>
   <component name="WindowStateProjectService">
     <state x="508" y="236" key="#Notifications" timestamp="1596992265028">
@@ -259,10 +267,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="668" y="278" width="655" height="268" key="#Vim_Emulation/0.0.1536.824@0.0.1536.824" timestamp="1597499653118" />
-    <state x="223" y="67" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596992288273">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="232" y="70" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598976270357">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="223" y="67" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1596992288273" />
+    <state x="232" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1598976270357" />
     <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1596843654330">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -275,22 +284,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1597502229840" />
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1598927805966">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1579" height="222" key="GridCell.Tab.0.bottom" timestamp="1598976277289">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598927805966" />
-    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1598927805965">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1579" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1598976277289" />
+    <state width="1579" height="222" key="GridCell.Tab.0.center" timestamp="1598976277289">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1598927805965" />
-    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1598927805964">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1579" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1598976277289" />
+    <state width="1579" height="222" key="GridCell.Tab.0.left" timestamp="1598976277289">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1598927805964" />
-    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1598927805966">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1579" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1598976277289" />
+    <state width="1579" height="222" key="GridCell.Tab.0.right" timestamp="1598976277289">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598927805966" />
+    <state width="1579" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1598976277289" />
     <state width="1515" height="261" key="GridCell.Tab.1.bottom" timestamp="1598390924335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -311,10 +324,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1596992560763" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1598298709512">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="376" y="151" key="Vcs.Push.Dialog.v2" timestamp="1598964584861">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1598298709512" />
+    <state x="376" y="151" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1598964584861" />
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597512289707">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
