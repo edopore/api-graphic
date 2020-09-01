@@ -3,7 +3,11 @@ import pandas as pd
 
 
 def connect(host, username, password):
-    connection = routeros_api.RouterOsApiPool(host, username=username, password=password, port=8740, plaintext_login=True)
+    connection = routeros_api.RouterOsApiPool(host,
+                                              username=username,
+                                              password=password,
+                                              port=8740,
+                                              plaintext_login=True)
     api = connection.get_api()
     print('Conexión Establecida')
     return api, connection
@@ -20,7 +24,7 @@ def obtenerqueue(api):
     queue = []
     for i in lista:
         queue.append(i)
-    return lista
+    return queue
 
 
 def obtenerarp(api, interface=''):

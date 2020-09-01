@@ -53,12 +53,40 @@ def start():
     raiz.mainloop()
 
 
+def mainwindow(app, conect, host, user):
+    mainmenu = Tk()
+    mainmenu.geometry("500x250")
+    mainmenu.title("API ISANET: " + user + "@" + host)
+    mainmenu.iconbitmap("media/MikroTik.ico")
+    mainmenu.resizable(False, False)
+
+    mainmenu.protocol('WM_DELETE_WINDOW', lambda: disconect(conect, mainmenu))
+    optionframe = Frame(mainmenu)
+    optionframe.pack()
+
+    mainframe = Frame(mainmenu)
+    mainframe.pack()
+
+    logoutframe = Frame(mainmenu)
+    logoutframe.pack()
+
+    option = IntVar()
+    option.set(1)
+    selec(option, mainframe, app)
+
+    Radiobutton(mainframe, text="Activar usuarios", variable=option,
+                value=1, command=lambda: selec(option, mainframe, app)).grid(row=0, column=0, padx=5, pady=5)
+    Radiobutton(mainframe, text="Desactivar usuarios", variable=option,
+                value=2, command=lambda: selec(option, mainframe, app)).grid(row=0, column=1, padx=5, pady=5)
+    Button(logoutframe, text="Cerrar Sesión", command=lambda: disconect(conect, mainmenu)).grid(row=0, padx=5, pady=5)
+
+
 def filewindow():
-    ventana = Tk()
-    ventana.withdraw()
-    ventana.filename = filedialog.askopenfilename(initialdir="/Documents", title="Select file",
-                                                  filetypes=(("excel files", "*.xlsx"), ("all files", "*.*")))
-    return ventana.filename
+    window = Tk()
+    window.withdraw()
+    window.filename = filedialog.askopenfilename(initialdir="/Documents", title="Select file",
+                                                 filetypes=(("excel files", "*.xlsx"), ("all files", "*.*")))
+    return window.filename
 
 
 def disconect(conect, window):
@@ -68,8 +96,8 @@ def disconect(conect, window):
 
 
 def out(window):
-    cerrar = messagebox.askyesno(title="Salir", message="¿Está seguro que desea salir?")
-    if cerrar:
+    close = messagebox.askyesno(title="Salir", message="¿Está seguro que desea salir?")
+    if close:
         window.destroy()
 
 
@@ -85,72 +113,44 @@ def getdata(host, username, password, window):
         mainwindow(app, conect, host, username)
 
 
-def activatewindow(app, opcode, dirip=""):
+def activate(app, opcode, dirip=""):
     if opcode == 1:
-        print(opcode)
-        ip = dirip.get()
-        if ip:
-            activar(app, ip)
-            messagebox.showinfo(title="Activar usuario", message=ip+" Activada")
-        else:
-            messagebox.showinfo(title="Error", message='¡¡Ingrese los datos!!')
-    elif opcode == 2:
-        print(opcode)
-        ips = filewindow()
-        print(type(ips))
-        activarfile(ips, app)
-        print("Activar Usuarios " + ips)
-
-
-def deactivatewindow(app, opcode, dirip=""):
-    if opcode == 1:
-        print(opcode)
-        ip = dirip.get()
-        if ip:
-            desactivar(app, ip)
-            messagebox.showerror(title="Desactivar usuario", message=ip + " Desactivada")
+        if dirip:
+            activar(app, dirip)
+            messagebox.showinfo(title="Activar usuario", message=dirip + " Activada")
         else:
             messagebox.showerror(title="Error", message='¡¡Ingrese los datos!!')
     elif opcode == 2:
-        print(opcode)
         ips = filewindow()
-        print(type(ips))
+        activarfile(ips, app)
+
+
+def deactivate(app, opcode, dirip=""):
+    if opcode == 1:
+        if dirip:
+            desactivar(app, dirip)
+            messagebox.showinfo(title="Desactivar usuario", message=dirip + " Desactivada")
+        else:
+            messagebox.showerror(title="Error", message='¡¡Ingrese los datos!!')
+    elif opcode == 2:
+        ips = filewindow()
         desactivarfile(ips, app)
-        print("Activar Usuarios " + ips)
-
-
-def mainwindow(app, conect, host, user):
-    mainmenu = Tk()
-    mainmenu.geometry("500x250")
-    mainmenu.title("API ISANET:"+user+"@"+host)
-    mainmenu.iconbitmap("media/MikroTik.ico")
-    mainmenu.resizable(False, False)
-
-    optionframe = Frame(mainmenu)
-    optionframe.pack()
-
-    mainframe = Frame(mainmenu)
-    mainframe.pack()
-
-    logoutframe = Frame(mainmenu)
-    logoutframe.pack()
-
-    option = IntVar()
-    option.set(1)
-    selec(option, mainframe, app)
-
-    Radiobutton(mainframe, text="Activar usuarios", variable=option, value=1, command=lambda: selec(option, mainframe, app)).grid(row=0, column=0, padx=5, pady=5)
-    Radiobutton(mainframe, text="Desactivar usuarios", variable=option, value=2, command=lambda: selec(option, mainframe, app)).grid(row=0, column=1, padx=5, pady=5)
-    Button(logoutframe, text="Cerrar Sesión", command=lambda: disconect(conect, mainmenu)).grid(row=0, padx=5, pady=5)
 
 
 def selec(option, frame, app):
     dirip = StringVar()
     Label(frame, text="Dirección IP: ").grid(row=1, column=0, padx=5, pady=5, sticky='e')
-    dirip = Entry(frame, textvariable=dirip).grid(row=1, column=1, padx=5, pady=5)
+    dirip = Entry(frame, textvariable=dirip)
+    dirip.focus()
+    dirip.grid(row=1, column=1, padx=5, pady=5)
+
     if option.get() == 1:
-        Button(frame, text="Activar usuario", width="15", command=lambda: activatewindow(app, 1, dirip)).grid(row=2, column=0, padx=5, pady=5)
-        Button(frame, text="Activar usuarios desde archivo", width="25", command=lambda: activatewindow(app, 2)).grid(row=2, column=1, padx=5, pady=5)
+        Button(frame, text="Activar usuario", width="15",
+               command=lambda: activate(app, 1, dirip.get())).grid(row=2, column=0, padx=5, pady=5)
+        Button(frame, text="Activar usuarios desde archivo", width="25",
+               command=lambda: activate(app, 2)).grid(row=2, column=1, padx=5, pady=5)
     else:
-        Button(frame, text="Desactivar usuario", width="15", command=lambda: deactivatewindow(app, 1, dirip)).grid(row=2, column=0, padx=5, pady=5)
-        Button(frame, text="Desactivar usuarios desde archivo", width="25", command=lambda: deactivatewindow(app, 2)).grid(row=2, column=1, padx=5, pady=5)
+        Button(frame, text="Desactivar usuario", width="15",
+               command=lambda: deactivate(app, 1, dirip.get())).grid(row=2, column=0, padx=5, pady=5)
+        Button(frame, text="Desactivar usuarios desde archivo", width="25",
+               command=lambda: deactivate(app, 2)).grid(row=2, column=1, padx=5, pady=5)
