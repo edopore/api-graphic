@@ -1,6 +1,5 @@
 from tkinter import filedialog
 from tkinter import messagebox
-from tkinter import ttk
 from tkinter import *
 from api import *
 
@@ -109,6 +108,10 @@ def deactivatewindow(app, dirip=""):
 
 def mainwindow(app, conect):
     mainmenu = Tk()
+
+    optionframe = Frame(mainmenu)
+    optionframe.pack()
+
     mainframe = Frame(mainmenu)
     mainframe.pack()
 
