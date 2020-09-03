@@ -46,8 +46,8 @@ def desactivarfile(file, app):
     print(len(ip))
     for dire in ip:
         print(dire)
-        desactivar(app, dire)
-    return
+        _id, enable = desactivar(app, dire)
+        return _id, enable
 
 
 def activarfile(file, app):
@@ -57,8 +57,8 @@ def activarfile(file, app):
     print(len(ip))
     for dire in ip:
         print(dire)
-        activar(app, dire)
-    return
+        _id, enable = activar(app, dire)
+    return _id, enable
 
 
 def activar(app, address):

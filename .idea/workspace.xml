@@ -24,12 +24,13 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/casa" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9bdcf36e-0d88-485e-a045-8af0e6a87b8a" name="Default Changelist" comment="Se agregan funciones de habilitar/deshabilitar funcionales">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funciones.py" beforeDir="false" afterPath="$PROJECT_DIR$/funciones.py" afterDir="false" />
@@ -52,7 +53,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="casa" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -142,13 +143,13 @@
       <method v="2" />
     </configuration>
     <configuration name="pruebase" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="apigraphic" />
+      <module name="api-graphic" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\DosMilDePan\AppData\Local\Programs\Python\Python38-32\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\SOLUCIONES-FARA\AppData\Local\Programs\Python\Python38-32\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -170,6 +171,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.prueba" />
+        <item itemvalue="Python.pruebase" />
+        <item itemvalue="Python.pruebajson" />
         <item itemvalue="Python.pruebase" />
         <item itemvalue="Python.pruebajson" />
       </list>
@@ -243,7 +246,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/casa" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -274,11 +277,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="668" y="278" width="655" height="268" key="#Vim_Emulation/0.0.1536.824@0.0.1536.824" timestamp="1597499653118" />
-    <state x="232" y="70" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598976270357">
+    <state x="232" y="70" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599051185358">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="223" y="67" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1596992288273" />
-    <state x="232" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1598976270357" />
+    <state x="232" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1599051185358" />
     <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1596843654330">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -291,26 +294,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1597502229840" />
-    <state width="1579" height="222" key="GridCell.Tab.0.bottom" timestamp="1598993045058">
+    <state width="1579" height="221" key="GridCell.Tab.0.bottom" timestamp="1599173987227">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598927805966" />
-    <state width="1579" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1598993045058" />
-    <state width="1579" height="222" key="GridCell.Tab.0.center" timestamp="1598993045058">
+    <state width="1579" height="221" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1599173987227" />
+    <state width="1579" height="221" key="GridCell.Tab.0.center" timestamp="1599173987227">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1598927805965" />
-    <state width="1579" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1598993045058" />
-    <state width="1579" height="222" key="GridCell.Tab.0.left" timestamp="1598993045058">
+    <state width="1579" height="221" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1599173987227" />
+    <state width="1579" height="221" key="GridCell.Tab.0.left" timestamp="1599173987227">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1598927805964" />
-    <state width="1579" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1598993045058" />
-    <state width="1579" height="222" key="GridCell.Tab.0.right" timestamp="1598993045058">
+    <state width="1579" height="221" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1599173987227" />
+    <state width="1579" height="221" key="GridCell.Tab.0.right" timestamp="1599173987227">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598927805966" />
-    <state width="1579" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1598993045058" />
+    <state width="1579" height="221" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1599173987227" />
     <state width="1515" height="261" key="GridCell.Tab.1.bottom" timestamp="1598390924335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -331,11 +334,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1596992560763" />
-    <state x="376" y="151" key="Vcs.Push.Dialog.v2" timestamp="1598987623631">
+    <state x="376" y="151" key="Vcs.Push.Dialog.v2" timestamp="1599000215182">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1598298709512" />
-    <state x="376" y="151" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1598987623631" />
+    <state x="376" y="151" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1599000215182" />
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597512289707">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

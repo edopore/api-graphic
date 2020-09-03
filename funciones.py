@@ -1,5 +1,6 @@
 from tkinter import filedialog
 from tkinter import messagebox
+from tkinter import ttk
 from tkinter import *
 from api import *
 
@@ -81,6 +82,41 @@ def mainwindow(app, conect, host, user):
     Button(logoutframe, text="Cerrar Sesión", command=lambda: disconect(conect, mainmenu)).grid(row=0, padx=5, pady=5)
 
 
+def treestatus(opcode, app):
+    window = Tk()
+    Button(window, text="Cerrar", command=window.destroy).pack()
+
+    tree = ttk.Treeview(window)
+
+    tree["columns"] = ("one", "two", "three")
+    tree.column("#0", width=50, minwidth=50)
+    tree.column("one", width=80, minwidth=80)
+    tree.column("two", width=80, minwidth=80)
+    tree.column("three", width=80, minwidth=80)
+
+    tree.heading("#0", text="#")
+    tree.heading("one", text="ID")
+    tree.heading("two", text="Dirección IP")
+    tree.heading("three", text="Disabled")
+
+    tree.pack(side=TOP, fill=X)
+    ips = filewindow()
+    file = pd.read_excel(ips)
+    ip = file['DIRECCION IP']
+    print(len(ip))
+    i = 0
+    if opcode == 1:
+        for dire in ip:
+            _id, en = activar(app, dire)
+            tree.insert("", i, text=str(i), values=(_id, dire, en))
+            i += 1
+    elif opcode == 2:
+        for dire in ip:
+            _id, en = desactivar(app, dire)
+            tree.insert("", i, text=str(i), values=(_id, dire, en))
+            i += 1
+
+
 def filewindow():
     window = Tk()
     window.withdraw()
@@ -90,9 +126,11 @@ def filewindow():
 
 
 def disconect(conect, window):
-    disconnect(conect)
-    window.destroy()
-    start()
+    close = messagebox.askyesno(title="Salir", message="¿Está seguro que desea salir?")
+    if close:
+        disconnect(conect)
+        window.destroy()
+        start()
 
 
 def out(window):
@@ -121,8 +159,7 @@ def activate(app, opcode, dirip=""):
         else:
             messagebox.showerror(title="Error", message='¡¡Ingrese los datos!!')
     elif opcode == 2:
-        ips = filewindow()
-        activarfile(ips, app)
+        treestatus(opcode-1, app)
 
 
 def deactivate(app, opcode, dirip=""):
@@ -133,8 +170,7 @@ def deactivate(app, opcode, dirip=""):
         else:
             messagebox.showerror(title="Error", message='¡¡Ingrese los datos!!')
     elif opcode == 2:
-        ips = filewindow()
-        desactivarfile(ips, app)
+        treestatus(opcode, app)
 
 
 def selec(option, frame, app):
