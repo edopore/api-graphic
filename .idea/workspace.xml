@@ -29,10 +29,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9bdcf36e-0d88-485e-a045-8af0e6a87b8a" name="Default Changelist" comment="Se agregan funciones de habilitar/deshabilitar funcionales">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="9bdcf36e-0d88-485e-a045-8af0e6a87b8a" name="Default Changelist" comment="se agrega treeview para estado de direcciones IP">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funciones.py" beforeDir="false" afterPath="$PROJECT_DIR$/funciones.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -232,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598987539337</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="se agrega treeview para estado de direcciones IP">
+      <created>1599174135345</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1599174135345</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -266,7 +271,8 @@
     <MESSAGE value="Se agrega variable HUB" />
     <MESSAGE value="Fusion casa-oficina" />
     <MESSAGE value="Se agregan funciones de habilitar/deshabilitar funcionales" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se agregan funciones de habilitar/deshabilitar funcionales" />
+    <MESSAGE value="se agrega treeview para estado de direcciones IP" />
+    <option name="LAST_COMMIT_MESSAGE" value="se agrega treeview para estado de direcciones IP" />
   </component>
   <component name="WindowStateProjectService">
     <state x="508" y="236" key="#Notifications" timestamp="1596992265028">
@@ -294,26 +300,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1597502229840" />
-    <state width="1579" height="221" key="GridCell.Tab.0.bottom" timestamp="1599173987227">
+    <state width="1579" height="221" key="GridCell.Tab.0.bottom" timestamp="1599485956805">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598927805966" />
-    <state width="1579" height="221" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1599173987227" />
-    <state width="1579" height="221" key="GridCell.Tab.0.center" timestamp="1599173987227">
+    <state width="1579" height="221" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1599485956805" />
+    <state width="1579" height="221" key="GridCell.Tab.0.center" timestamp="1599485956805">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1598927805965" />
-    <state width="1579" height="221" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1599173987227" />
-    <state width="1579" height="221" key="GridCell.Tab.0.left" timestamp="1599173987227">
+    <state width="1579" height="221" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1599485956805" />
+    <state width="1579" height="221" key="GridCell.Tab.0.left" timestamp="1599485956805">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1598927805964" />
-    <state width="1579" height="221" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1599173987227" />
-    <state width="1579" height="221" key="GridCell.Tab.0.right" timestamp="1599173987227">
+    <state width="1579" height="221" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1599485956805" />
+    <state width="1579" height="221" key="GridCell.Tab.0.right" timestamp="1599485956805">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598927805966" />
-    <state width="1579" height="221" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1599173987227" />
+    <state width="1579" height="221" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1599485956805" />
     <state width="1515" height="261" key="GridCell.Tab.1.bottom" timestamp="1598390924335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -334,11 +340,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1596992560763" />
-    <state x="376" y="151" key="Vcs.Push.Dialog.v2" timestamp="1599000215182">
+    <state x="376" y="151" key="Vcs.Push.Dialog.v2" timestamp="1599174171338">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1598298709512" />
-    <state x="376" y="151" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1599000215182" />
+    <state x="376" y="151" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1599174171338" />
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597512289707">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

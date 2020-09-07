@@ -8,7 +8,7 @@ from api import *
 def start():
     raiz = Tk()
     raiz.title("API ISANET")
-    raiz.iconbitmap("media/MikroTik.ico")
+    raiz.iconbitmap("media/LogoIsanet.ico")
     raiz.resizable(False, False)
 
     frameroot = Frame(raiz)
@@ -47,7 +47,6 @@ def start():
     bconectar.grid(column=0, row=4, padx=5, pady=5)
     bsalir = Button(miframe, text="Salir", command=lambda: out(raiz))
     bsalir.grid(column=1, row=4, padx=5, pady=5)
-
     raiz.protocol('WM_DELETE_WINDOW', lambda: out(raiz))
     raiz.bind('<Escape>', lambda e: out(raiz))
     raiz.bind('<Return>', lambda e: getdata(host, username, password, raiz))
@@ -58,10 +57,10 @@ def mainwindow(app, conect, host, user):
     mainmenu = Tk()
     mainmenu.geometry("500x250")
     mainmenu.title("API ISANET: " + user + "@" + host)
-    mainmenu.iconbitmap("media/MikroTik.ico")
+    mainmenu.iconbitmap("media/LogoIsanet.ico")
     mainmenu.resizable(False, False)
-
     mainmenu.protocol('WM_DELETE_WINDOW', lambda: disconect(conect, mainmenu))
+
     optionframe = Frame(mainmenu)
     optionframe.pack()
 
@@ -83,10 +82,14 @@ def mainwindow(app, conect, host, user):
 
 
 def treestatus(opcode, app):
-    window = Tk()
-    Button(window, text="Cerrar", command=window.destroy).pack()
+    ips = filewindow()
 
-    tree = ttk.Treeview(window)
+    window = Tk()
+    window.iconbitmap("media/LogoIsanet.ico")
+    Label(window, text='Estado Usuarios').pack(fill=X)
+    tree = ttk.Treeview(window, selectmode='browse')
+    vsb = ttk.Scrollbar(window, orient="vertical", command=tree.yview)
+    vsb.pack(side='right', fill='y')
 
     tree["columns"] = ("one", "two", "three")
     tree.column("#0", width=50, minwidth=50)
@@ -100,21 +103,27 @@ def treestatus(opcode, app):
     tree.heading("three", text="Disabled")
 
     tree.pack(side=TOP, fill=X)
-    ips = filewindow()
-    file = pd.read_excel(ips)
-    ip = file['DIRECCION IP']
-    print(len(ip))
-    i = 0
-    if opcode == 1:
-        for dire in ip:
-            _id, en = activar(app, dire)
-            tree.insert("", i, text=str(i), values=(_id, dire, en))
-            i += 1
-    elif opcode == 2:
-        for dire in ip:
-            _id, en = desactivar(app, dire)
-            tree.insert("", i, text=str(i), values=(_id, dire, en))
-            i += 1
+    #Button(window, text="Cerrar", command=window.destroy).pack()
+
+    if ips:
+        file = pd.read_excel(ips)
+        ip = file['DIRECCION IP']
+        print(len(ip))
+        i = 0
+        if opcode == 1:
+            window.title("API ISANET: Activar")
+            for dire in ip:
+                _id, en = activar(app, dire)
+                tree.insert("", i, text=str(i+1), values=(_id, dire, en))
+                i += 1
+        elif opcode == 2:
+            window.title("API ISANET: Desactivar")
+            for dire in ip:
+                _id, en = desactivar(app, dire)
+                tree.insert("", i, text=str(i+1), values=(_id, dire, en))
+                i += 1
+    else:
+        window.destroy()
 
 
 def filewindow():
@@ -122,20 +131,19 @@ def filewindow():
     window.withdraw()
     window.filename = filedialog.askopenfilename(initialdir="/Documents", title="Select file",
                                                  filetypes=(("excel files", "*.xlsx"), ("all files", "*.*")))
+    window.destroy()
     return window.filename
 
 
 def disconect(conect, window):
-    close = messagebox.askyesno(title="Salir", message="¿Está seguro que desea salir?")
-    if close:
+    if messagebox.askyesno(title="Cerrar Sesión", message="¿Está seguro que desea cerrar sesión?"):
         disconnect(conect)
         window.destroy()
         start()
 
 
 def out(window):
-    close = messagebox.askyesno(title="Salir", message="¿Está seguro que desea salir?")
-    if close:
+    if messagebox.askyesno(title="Salir", message="¿Está seguro que desea salir?"):
         window.destroy()
 
 
