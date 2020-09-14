@@ -85,6 +85,7 @@ def treestatus(opcode, app):
     ips = filewindow()
 
     window = Tk()
+    window.resizable(False, False)
     window.iconbitmap("media/LogoIsanet.ico")
     Label(window, text='Estado Usuarios').pack(fill=X)
     tree = ttk.Treeview(window, selectmode='browse')
@@ -97,13 +98,13 @@ def treestatus(opcode, app):
     tree.column("two", width=80, minwidth=80)
     tree.column("three", width=80, minwidth=80)
 
-    tree.heading("#0", text="#")
+    tree.heading("#0", text="Item")
     tree.heading("one", text="ID")
     tree.heading("two", text="Dirección IP")
     tree.heading("three", text="Disabled")
 
-    tree.pack(side=TOP, fill=X)
-    #Button(window, text="Cerrar", command=window.destroy).pack()
+    tree.pack(side=TOP)
+    Button(window, text="Cerrar", command=window.destroy).pack()
 
     if ips:
         file = pd.read_excel(ips)
@@ -162,8 +163,13 @@ def getdata(host, username, password, window):
 def activate(app, opcode, dirip=""):
     if opcode == 1:
         if dirip:
-            activar(app, dirip)
-            messagebox.showinfo(title="Activar usuario", message=dirip + " Activada")
+            _id = activar(app, dirip)
+            print(_id[0])
+            if _id[0]:
+                messagebox.showinfo(title="Activar usuario", message=dirip + " Activada")
+            else:
+                messagebox.showerror(title="Error", message='La dirección IP: '+dirip+' no se puede activar, no esta en lista o no existe.')
+
         else:
             messagebox.showerror(title="Error", message='¡¡Ingrese los datos!!')
     elif opcode == 2:
@@ -173,8 +179,11 @@ def activate(app, opcode, dirip=""):
 def deactivate(app, opcode, dirip=""):
     if opcode == 1:
         if dirip:
-            desactivar(app, dirip)
-            messagebox.showinfo(title="Desactivar usuario", message=dirip + " Desactivada")
+            _id = desactivar(app, dirip)
+            if _id[0]:
+                messagebox.showinfo(title="Activar usuario", message=dirip + " Activada")
+            else:
+                messagebox.showerror(title="Error", message='La dirección IP: '+dirip+' no se puede desactivar, no esta en lista o no existe.')
         else:
             messagebox.showerror(title="Error", message='¡¡Ingrese los datos!!')
     elif opcode == 2:

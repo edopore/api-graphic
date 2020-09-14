@@ -18,29 +18,13 @@ def disconnect(connection):
     return connection.disconnect()
 
 
-def obtenerqueue(api):
-    list_queues = api.get_resource('/queue/simple')
-    lista = list_queues.get()
-    queue = []
-    for i in lista:
-        queue.append(i)
-    return queue
-
-
-def obtenerarp(api, interface=''):
-    list_queues = api.get_resource('/ip/arp')
-    if interface == '':
-        lista = list_queues.get()
-    else:
-        lista = list_queues.get(interface=interface)
-    arp = []
-    for i in lista:
-        arp.append(i)
-    return arp
+def obteneripinfo(app,ip):
+    lista = app.get_resource('/ip/arp')
+    user = lista.get(address=ip)
+    return user, lista
 
 
 def desactivarfile(file, app):
-    print(file)
     file = pd.read_excel(file)
     ip = file['DIRECCION IP']
     print(len(ip))
@@ -51,7 +35,6 @@ def desactivarfile(file, app):
 
 
 def activarfile(file, app):
-    print(file)
     file = pd.read_excel(file)
     ip = file['DIRECCION IP']
     print(len(ip))
@@ -62,16 +45,24 @@ def activarfile(file, app):
 
 
 def activar(app, address):
-    list_address = app.get_resource('/ip/arp')  # Obtiene Datos de la tabla ARP
-    _id = list_address.get(address=address)[0]['id']
-    list_address.set(id=_id, address=address, disabled='false')
-    enable = list_address.get(address=address)[0]['disabled']
+    ip, lista = obteneripinfo(app, address)
+    if ip:
+        _id = ip[0]['id']
+        lista.set(id=_id, address=address, disabled='false')
+        enable = lista.get(address=address)[0]['disabled']
+    else:
+        _id = ''
+        enable = ''
     return _id, enable
 
 
 def desactivar(app, address):
-    list_address = app.get_resource('/ip/arp')  # Obtiene Datos de la tabla ARP
-    _id = list_address.get(address=address)[0]['id']
-    list_address.set(id=_id, address=address, disabled='true')
-    enable = list_address.get(address=address)[0]['disabled']
+    ip, lista = obteneripinfo(app, address)
+    if ip:
+        _id = ip[0]['id']
+        lista.set(id=_id, address=address, disabled='true')
+        enable = lista.get(address=address)[0]['disabled']
+    else:
+        _id = ''
+        enable = ''
     return _id, enable
